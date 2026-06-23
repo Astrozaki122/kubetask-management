@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kubetask-config
+
+data:
+  APP_NAME: "KubeTask Management System"
+  MESSAGE: "Running inside Kubernetes "

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubetask-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kubetask
+  template:
+    metadata:
+      labels:
+        app: kubetask
+    spec:
+      containers:
+        - name: kubetask
+          image: kubetask:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: kubetask-config
